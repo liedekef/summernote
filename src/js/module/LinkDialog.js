@@ -71,11 +71,11 @@ export default class LinkDialog {
       return this.options.onCreateLink(linkUrl);
     }
     if (MAILTO_PATTERN.test(linkUrl)) {
-      return 'mailto://' + linkUrl;
+      return 'mailto:' + linkUrl;
     } else if (TEL_PATTERN.test(linkUrl)) {
-      return 'tel://' + linkUrl;
+      return 'tel:' + linkUrl;
     } else if (!URL_SCHEME_PATTERN.test(linkUrl)) {
-      return 'http://' + linkUrl;
+      return 'https://' + linkUrl;
     }
     return linkUrl;
   }
