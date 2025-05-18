@@ -867,8 +867,8 @@ export default class Buttons {
       const fontSize = styleInfo['font-size'];
       $cont.find('.dropdown-fontsize a').each((idx, item) => {
         const $item = $(item);
-        // always compare with string to avoid creating another func.
-        const isChecked = ($item.data('value') + '') === (fontSize + '');
+        // compare as floatingpoint
+        const isChecked = parseFloat($item.data('value')) === parseFloat(fontSize);
         $item.toggleClass('checked', isChecked);
       });
       $cont.find('.note-current-fontsize').text(fontSize);
@@ -886,8 +886,8 @@ export default class Buttons {
       const lineHeight = styleInfo['line-height'];
       $cont.find('.dropdown-line-height a').each((idx, item) => {
         const $item = $(item);
-        // always compare with string to avoid creating another func.
-        const isChecked = ($(item).data('value') + '') === (lineHeight + '');
+        // compare as floatingpoint
+        const isChecked = parseFloat($(item).data('value')) === parseFloat(lineHeight);
         $item.toggleClass('checked', isChecked);
       });
       $cont.find('.note-current-line-height').text(lineHeight);
